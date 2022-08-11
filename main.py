@@ -4,9 +4,9 @@ from pyautogui import *
 import keyboard
 from time import sleep
 import cv2
-from PIL import Image
 import re
 import pyperclip
+from random import randint
 #import easyoc  r
 win_r=[0]
 percent=[0]
@@ -42,7 +42,7 @@ while x<41:
     conteo=0
     flask=True
     for i in range(41):
-        sleep(1.5)
+        sleep(randint(1,3))
         screenshot('winrate.png',region=(539,569, 231, 45))
         screenshot('percent.png',region=(1019,569, 231, 45))
         img1 = cv2.imread('winrate.png')
@@ -77,11 +77,12 @@ while x<41:
                 sleep(0.4)
             break
         press('up')
-        sleep(2.5)
+        sleep(randint(2.5,4))
 
     conteo=0
     if flask:
         for i in range(40):
+            sleep(randint(1,3))
             screenshot('winrate.png',region=(539,569, 231, 45))
             screenshot('percent.png',region=(1019,569, 231, 45))
             img1 = cv2.imread('winrate.png')
@@ -116,27 +117,24 @@ while x<41:
                     sleep(0.4)
                 break
             press('down')
-            sleep(2.5)
+            sleep(randint(2.5,4))
     try:
         if datos[x][0] == '+':
             if type(datos_completos[str(x)])==int:
                 datos_completos[str(x)]=int(datos_completos[str(x)])+datos[x][1]
             else:
                 datos_completos[str(x)]=float(datos_completos[str(x)])+datos[x][1]*0.1
-            for e in range(datos[x][1]):
-                press('up')
-                sleep(0.3)
         elif datos[x][0] == '-':
             if type(datos_completos[str(x)])==int:
                 datos_completos[str(x)]=int(datos_completos[str(x)])-datos[x][1]
             else:
                 datos_completos[str(x)]=float(datos_completos[str(x)])-datos[x][1]*0.1
-            for e in range(datos[x][1]):
+            """ for e in range(datos[x][1]):
                 press('down')
-                sleep(0.3)
+                 sleep(0.3)"""
     except:
         pass
-    sleep(1)
+    sleep(randint(1,4))
     if flask:
         press('tab')
     if datos_completos != datos_completos_anterior:
