@@ -77,7 +77,7 @@ while x<41:
                 sleep(0.4)
             break
         press('up')
-        sleep(randint(2.5,4))
+        sleep(randint(3,4))
 
     conteo=0
     if flask:
@@ -117,7 +117,7 @@ while x<41:
                     sleep(0.4)
                 break
             press('down')
-            sleep(randint(2.5,4))
+            sleep(randint(3,4))
     try:
         if datos[x][0] == '+':
             if type(datos_completos[str(x)])==int:
